@@ -1,0 +1,44 @@
+)ATTR DEFAULT(%+_)
+  + TYPE(TEXT) INTENS(LOW) COLOR(GREEN)
+  _ TYPE(INPUT) INTENS(HIGH) CAPS(OFF) JUST(LEFT) COLOR(TURQ)
+  % TYPE(TEXT) INTENS(HIGH) COLOR(WHITE)
+  @ TYPE(TEXT) INTENS(HIGH) COLOR(YELLOW)
+  # TYPE(TEXT) INTENS(HIGH) COLOR(RED)
+  ! TYPE(OUTPUT) INTENS(HIGH) COLOR(BLUE)
+)BODY EXPAND(||)
+%---------------------------  DATA ENTRY INTERFACE  -----------------------------
+%COMMAND ===>_ZCMD                                                                +
++
+@Table: !SCHEMA!.!TABLENAME                            +DB2 System: !DB2SSID    +
++
+@Enter values for table columns:
++
+%Column Name         Type    Len  Null  Current Value
+%------------         ----    ---  ----  --------------------------------
++
++COL1NAME   . . . . . _COL1VALUE                                               +
++COL2NAME   . . . . . _COL2VALUE                                               +
++COL3NAME   . . . . . _COL3VALUE                                               +
++COL4NAME   . . . . . _COL4VALUE                                               +
++COL5NAME   . . . . . _COL5VALUE                                               +
++COL6NAME   . . . . . _COL6VALUE                                               +
++COL7NAME   . . . . . _COL7VALUE                                               +
++COL8NAME   . . . . . _COL8VALUE                                               +
++
++(More columns available - use PF7/PF8 to scroll)
++
+#&MSG                                                                            +
++
++Instructions:
++ - Enter values for the columns you want to use in your operation
++ - Leave blank for columns you don't want to include
++ - For NULL values, enter the word NULL
++ - Press ENTER when done entering values
++
+%Press ENTER to continue to operation selection or PF3 to exit
+)INIT
+  .CURSOR = COL1VALUE
+  &MSG = &Z
+)PROC
+  /* Dynamic validation would be added here based on column types */
+)END

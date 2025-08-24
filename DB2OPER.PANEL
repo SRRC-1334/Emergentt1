@@ -1,0 +1,43 @@
+)ATTR DEFAULT(%+_)
+  + TYPE(TEXT) INTENS(LOW) COLOR(GREEN)
+  _ TYPE(INPUT) INTENS(HIGH) CAPS(ON) JUST(LEFT) COLOR(TURQ)
+  % TYPE(TEXT) INTENS(HIGH) COLOR(WHITE)
+  @ TYPE(TEXT) INTENS(HIGH) COLOR(YELLOW)
+  # TYPE(TEXT) INTENS(HIGH) COLOR(RED)
+  ! TYPE(OUTPUT) INTENS(HIGH) COLOR(BLUE)
+)BODY EXPAND(||)
+%------------------------  CRUD OPERATION SELECTION  -------------------------
+%COMMAND ===>_ZCMD                                                                +
++
+@Table: !SCHEMA!.!TABLENAME                            +DB2 System: !DB2SSID    +
++
+@Select the database operation you want to perform:
++
++  Operation . . . %CRUD_OP+   (C/R/U/D)
++
++
+%  Available Operations:
++
++    C - CREATE  (INSERT)    Insert new record into the table
++    R - READ    (SELECT)    Query/retrieve records from the table  
++    U - UPDATE              Modify existing records in the table
++    D - DELETE              Remove records from the table
++
++
+#&MSG                                                                            +
++
++Instructions:
++ - Enter C for CREATE (INSERT) operation
++ - Enter R for READ (SELECT) operation  
++ - Enter U for UPDATE operation
++ - Enter D for DELETE operation
++ - The system will generate the appropriate SQL statement
++   based on your selection and the data you entered
++
+%Press ENTER to continue or PF3 to exit
+)INIT
+  .CURSOR = CRUD_OP
+  &MSG = &Z
+)PROC
+  VER (&CRUD_OP,NB,LIST,C,R,U,D)
+)END

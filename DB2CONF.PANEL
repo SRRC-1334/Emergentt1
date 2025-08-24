@@ -1,0 +1,39 @@
+)ATTR DEFAULT(%+_)
+  + TYPE(TEXT) INTENS(LOW) COLOR(GREEN)
+  _ TYPE(INPUT) INTENS(HIGH) CAPS(ON) JUST(LEFT) COLOR(TURQ)
+  % TYPE(TEXT) INTENS(HIGH) COLOR(WHITE)
+  @ TYPE(TEXT) INTENS(HIGH) COLOR(YELLOW)
+  # TYPE(TEXT) INTENS(HIGH) COLOR(RED)
+  ! TYPE(OUTPUT) INTENS(HIGH) COLOR(BLUE)
+)BODY EXPAND(||)
+%---------------------------  SQL CONFIRMATION  -----------------------------
+%COMMAND ===>_ZCMD                                                                +
++
+@Generated SQL Statement:
++
+!SQL_STMT                                                                       +
+!                                                                               +
+!                                                                               +
+!                                                                               +
+!                                                                               +
++
+#&MSG                                                                            +
++
+@Review the generated SQL statement above.
++
++Execute this SQL? . . . %EXECUTE_YN+   (Y/N)
++
++Instructions:
++ - Review the SQL statement carefully
++ - Enter Y to execute the SQL statement
++ - Enter N to return to data entry
++ - The operation will be performed against DB2 table !SCHEMA!.!TABLENAME!
++
+%Press ENTER to execute or PF3 to cancel
+)INIT
+  .CURSOR = EXECUTE_YN
+  &MSG = &Z
+  &EXECUTE_YN = &Z
+)PROC
+  VER (&EXECUTE_YN,NB,LIST,Y,N)
+)END

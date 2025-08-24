@@ -1,0 +1,37 @@
+)ATTR DEFAULT(%+_)
+  + TYPE(TEXT) INTENS(LOW) COLOR(GREEN)
+  _ TYPE(INPUT) INTENS(HIGH) CAPS(ON) JUST(LEFT) COLOR(TURQ)
+  % TYPE(TEXT) INTENS(HIGH) COLOR(WHITE)
+  @ TYPE(TEXT) INTENS(HIGH) COLOR(YELLOW)
+  # TYPE(TEXT) INTENS(HIGH) COLOR(RED)
+)BODY EXPAND(||)
+%---------------------------  DB2 CRUD OPERATIONS TOOL  ---------------------------
+%COMMAND ===>_ZCMD                                                                +
++
+@Enter DB2 connection details and table information:
++
++  DB2 SSID  . . ._%DB2SSID  +   (4-character DB2 subsystem ID)
++  Schema  . . . .%SCHEMA                              +   (Table owner/schema)
++  Table Name  . .%TABLENAME                           +   (DB2 table name)
++
++
+#&MSG                                                                            +
++
++Instructions:
++ - Enter the DB2 subsystem ID (SSID) you want to connect to
++ - Specify the schema (owner) of the table
++ - Enter the exact table name for CRUD operations
++ - Press ENTER to continue or PF3/END to exit
++
++Note: This tool will dynamically create ISPF tables based on the DB2 table
++      structure and provide a user-friendly interface for CRUD operations.
++
+%Press ENTER to continue or PF3 to exit
+)INIT
+  .CURSOR = DB2SSID
+  &MSG = &Z
+)PROC
+  VER (&DB2SSID,NB,PICT,AAAA)
+  VER (&SCHEMA,NB)
+  VER (&TABLENAME,NB)
+)END
