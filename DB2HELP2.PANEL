@@ -1,0 +1,43 @@
+)ATTR DEFAULT(%+_)
+  + TYPE(TEXT) INTENS(LOW) COLOR(GREEN)
+  _ TYPE(INPUT) INTENS(HIGH) CAPS(ON) JUST(LEFT) COLOR(TURQ)
+  % TYPE(TEXT) INTENS(HIGH) COLOR(WHITE)
+  @ TYPE(TEXT) INTENS(HIGH) COLOR(YELLOW)
+  # TYPE(TEXT) INTENS(HIGH) COLOR(RED)
+  ! TYPE(OUTPUT) INTENS(HIGH) COLOR(BLUE)
+)BODY EXPAND(||) SCROLL(ON)
+%---------------------------  DB2CRUD HELP - Page 2  -------------------------
+%COMMAND ===>_ZCMD                                                                +
++
+@CRUD OPERATIONS DETAILED:
++
+@CREATE (C) - Insert New Records:
++• System displays all table columns with data types
++• Enter values for columns you want to populate
++• Leave blank for NULL values (if allowed)
++• Index columns are highlighted in yellow/bold
++• Date fields pre-filled with today's date
++• Timestamp fields pre-filled with current timestamp
++
+@READ (R) - Query/Select Records:
++• System displays all columns for WHERE condition building
++• Put 'S' in Line Cmd column to select columns for WHERE clause
++• Fill Value, Operator (=, <>, LIKE, BETWEEN, etc.), and Logic (AND, OR)
++• Can select multiple columns for complex WHERE conditions
++• Results limited by Max Rows setting (default 200)
++
+@UPDATE (U) - Modify Existing Records:
++• Similar to READ - select columns for WHERE condition
++• Also prompts for new values to update
++• Shows preview of affected rows before execution
++
+@DELETE (D) - Remove Records:
++• Select columns for WHERE condition (same as READ)
++• Shows preview of rows to be deleted
++• Requires confirmation before permanent deletion
++
+%Press PF7 for previous page, PF8 for next page, PF3 to exit help
+)INIT
+  &MSG = &Z
+)PROC
+)END

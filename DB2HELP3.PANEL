@@ -1,0 +1,46 @@
+)ATTR DEFAULT(%+_)
+  + TYPE(TEXT) INTENS(LOW) COLOR(GREEN)
+  _ TYPE(INPUT) INTENS(HIGH) CAPS(ON) JUST(LEFT) COLOR(TURQ)
+  % TYPE(TEXT) INTENS(HIGH) COLOR(WHITE)
+  @ TYPE(TEXT) INTENS(HIGH) COLOR(YELLOW)
+  # TYPE(TEXT) INTENS(HIGH) COLOR(RED)
+  ! TYPE(OUTPUT) INTENS(HIGH) COLOR(BLUE)
+)BODY EXPAND(||) SCROLL(ON)
+%---------------------------  DB2CRUD HELP - Page 3  -------------------------
+%COMMAND ===>_ZCMD                                                                +
++
+@ADVANCED FEATURES:
++
+@SQL EDITING:
++• Before execution, option to edit the generated SQL
++• Can add complex WHERE clauses, JOINs, subqueries
++• Full SQL modification capability
++• Helpful for advanced users who want custom SQL
++
+@QUERY HISTORY:
++• All executed queries saved to USER.DB2CRUD.USERQRY dataset
++• Member naming: CRUDddmmyysno (e.g., S2408251 = Select, 24/08/25, query #1)
++• Browse saved queries and rerun them
++• Edit saved queries before rerunning
++
+@EXPORT FUNCTIONALITY:
++• SELECT results can be exported to CSV format
++• Configurable delimiter (default semicolon ;)
++• Email option to send exported data as attachment
++• Export ignores Max Rows limit
++
+@SETTINGS:
++• Max Rows: 200-500 (controls SELECT display)
++• Deep Logging: Detailed vs basic operation logging
++• Export delimiter: Character for CSV field separation
++
+@LOGGING:
++• All operations logged to USER.DB2CRUD.LOG.Dddmmyy
++• Timestamp format: YYYY-MM-DD HH:MM:SS.mmm
++• Deep logging includes SQL statements and detailed steps
++
+%Press PF7 for previous page, PF3 to exit help
+)INIT
+  &MSG = &Z
+)PROC
+)END

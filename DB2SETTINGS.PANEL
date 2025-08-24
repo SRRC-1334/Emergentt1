@@ -1,0 +1,48 @@
+)ATTR DEFAULT(%+_)
+  + TYPE(TEXT) INTENS(LOW) COLOR(GREEN)
+  _ TYPE(INPUT) INTENS(HIGH) CAPS(ON) JUST(LEFT) COLOR(TURQ)
+  % TYPE(TEXT) INTENS(HIGH) COLOR(WHITE)
+  @ TYPE(TEXT) INTENS(HIGH) COLOR(YELLOW)
+  # TYPE(TEXT) INTENS(HIGH) COLOR(RED)
+  ! TYPE(OUTPUT) INTENS(HIGH) COLOR(BLUE)
+)BODY EXPAND(||)
+%-----------------------------  SETTINGS  ------------------------------------
+%COMMAND ===>_ZCMD                                                                +
++
+@Configure DB2CRUD Settings:
++
++
+@Display Settings:
++  Maximum Rows for SELECT . . %MAX_ROWS +   (Default: 200, Max: 500)
++
+@Logging Settings:
++  Deep Logging . . . . . . . %DEEP_LOG+    (Y=Detailed logs, N=Basic logs)
++
+@Export Settings:
++  CSV Delimiter  . . . . . . %EXPORT_DELIM+ (Default: ; semicolon)
++
+@Current Log Dataset:
++  !LOG_DSN                                                                    +
++
+@Query History Dataset:
++  !USERQRY_DSN                                                                +
++
++
+#&MSG                                                                            +
++
++Instructions:
++ - Maximum Rows: Controls SELECT result display (200-500)
++ - Deep Logging: Y=Log all SQL and details, N=Log basic operations only
++ - CSV Delimiter: Character used to separate fields in exported files
++ - Settings are saved automatically when you press ENTER
++ - Press PF3 to cancel without saving changes
++
+%Press ENTER to save settings or PF3 to cancel
+)INIT
+  .CURSOR = MAX_ROWS
+  &MSG = &Z
+)PROC
+  VER (&MAX_ROWS,NB,NUM,RANGE,1,500)
+  VER (&DEEP_LOG,NB,LIST,Y,N)
+  VER (&EXPORT_DELIM,NB,PICT,A)
+)END

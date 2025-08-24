@@ -1,0 +1,49 @@
+)ATTR DEFAULT(%+_)
+  + TYPE(TEXT) INTENS(LOW) COLOR(GREEN)
+  _ TYPE(INPUT) INTENS(HIGH) CAPS(ON) JUST(LEFT) COLOR(TURQ)
+  % TYPE(TEXT) INTENS(HIGH) COLOR(WHITE)
+  @ TYPE(TEXT) INTENS(HIGH) COLOR(YELLOW)
+  # TYPE(TEXT) INTENS(HIGH) COLOR(RED)
+  ! TYPE(OUTPUT) INTENS(HIGH) COLOR(BLUE)
+)BODY EXPAND(||)
+%-----------------------------  DB2 ERROR  -----------------------------------
+%COMMAND ===>_ZCMD                                                                +
++
+#ERROR OCCURRED:
++
+#SQLCODE: !ERROR_CODE                                                           +
++
+#Error Message:
+#!ERROR_MSG                                                                     +
+#!                                                                              +
++
+@Suggested Solution:
+@!SUGGESTED_FIX                                                                 +
+@!                                                                              +
++
+@Common Solutions:
++  • Check spelling of schema, table, and column names
++  • Verify you have proper DB2 privileges for this operation
++  • Ensure all required fields have values
++  • Check data types and lengths for inserted/updated values
++  • Verify foreign key relationships are satisfied
++  • Check for duplicate values in unique columns
++
+@Additional Help:
++  • Review the SQL statement for syntax errors
++  • Check DB2 manual for SQLCODE !ERROR_CODE! details
++  • Contact your DBA if privilege issues persist
++
+#&MSG                                                                            +
++
++Instructions:
++ - Review the error message and suggested solution above
++ - Make necessary corrections based on the guidance
++ - Press ENTER to return and retry the operation
++ - Press PF3 to return to main menu
++
+%Press ENTER to continue or PF3 to return to main menu
+)INIT
+  &MSG = &Z
+)PROC
+)END

@@ -1,0 +1,44 @@
+)ATTR DEFAULT(%+_)
+  + TYPE(TEXT) INTENS(LOW) COLOR(GREEN)
+  _ TYPE(INPUT) INTENS(HIGH) CAPS(ON) JUST(LEFT) COLOR(TURQ)
+  % TYPE(TEXT) INTENS(HIGH) COLOR(WHITE)
+  @ TYPE(TEXT) INTENS(HIGH) COLOR(YELLOW)
+  # TYPE(TEXT) INTENS(HIGH) COLOR(RED)
+  ! TYPE(OUTPUT) INTENS(HIGH) COLOR(BLUE)
+)BODY EXPAND(||) SCROLL(ON)
+%---------------------------  DB2CRUD HELP - Page 1  -------------------------
+%COMMAND ===>_ZCMD                                                                +
++
+@DB2 CRUD OPERATIONS TOOL - HELP SYSTEM
++
+@OVERVIEW:
++This tool provides a user-friendly interface for performing CRUD (Create, Read,
++Update, Delete) operations on DB2 tables without requiring detailed SQL knowledge.
++
+@MAIN SCREEN FIELDS:
++
+%Schema:        +The table owner or schema name (e.g., TESTUSER, PROD)
+%SSID:          +4-character DB2 subsystem identifier (e.g., DB2T, PROD)  
+%Table Name:    +Name of the DB2 table to work with (e.g., EMPLOYEE, CUSTOMER)
+%CRUD Operation:+C=Create(Insert), R=Read(Select), U=Update, D=Delete
++
+@MAIN MENU OPTIONS:
++
+%1 - Query History: +View and rerun previously saved queries
+%                   +Requires only SSID to be filled
++
+%2 - Settings:     +Configure maximum rows, logging level, export options
+%                   +No fields need to be filled
++
+%3 - Exit:         +End the DB2CRUD session
+%                   +No fields need to be filled
++
+@NEW QUERY PROCESS:
++Fill all fields (Schema, SSID, Table Name, CRUD) and press ENTER to start
++a new database operation.
++
+%Press PF8 for next page, PF3 to exit help
+)INIT
+  &MSG = &Z
+)PROC
+)END
