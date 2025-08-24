@@ -1,0 +1,49 @@
+)ATTR DEFAULT(%+_)
+  + TYPE(TEXT) INTENS(LOW) COLOR(GREEN)
+  _ TYPE(INPUT) INTENS(HIGH) CAPS(ON) JUST(LEFT) COLOR(TURQ)
+  % TYPE(TEXT) INTENS(HIGH) COLOR(WHITE)
+  @ TYPE(TEXT) INTENS(HIGH) COLOR(YELLOW)
+  # TYPE(TEXT) INTENS(HIGH) COLOR(RED)
+  ! TYPE(OUTPUT) INTENS(HIGH) COLOR(BLUE)
+)BODY EXPAND(||)
+%---------------------------  OPERATION RESULTS  -----------------------------
+%COMMAND ===>_ZCMD                                                                +
++
+@Operation Results for: !SCHEMA!.!TABLENAME                   +DB2: !DB2SSID    +
++
+@SQL Statement Executed:
+!SQL_STMT                                                                       +
++
+@Result:
++  SQLCODE . . . . !SQLCODE  +
++  Rows Affected . !ROWS_AFFECTED+
++  
++
+%Result Data (if SELECT operation):
++------------------------------------------------------------------------------
+!RESULT_DATA1                                                                   +
+!RESULT_DATA2                                                                   +
+!RESULT_DATA3                                                                   +
+!RESULT_DATA4                                                                   +
+!RESULT_DATA5                                                                   +
+!RESULT_DATA6                                                                   +
+!RESULT_DATA7                                                                   +
+!RESULT_DATA8                                                                   +
+!RESULT_DATA9                                                                   +
+!RESULT_DATA10                                                                  +
++------------------------------------------------------------------------------
++
+#&MSG                                                                            +
++
++Instructions:
++ - Review the operation results above
++ - For SELECT operations, result data is displayed
++ - Use PF7/PF8 to scroll through large result sets
++ - Press ENTER to perform another operation
++ - Press PF3 to exit the application
++
+%Press ENTER for new operation or PF3 to exit
+)INIT
+  &MSG = &Z
+)PROC
+)END
