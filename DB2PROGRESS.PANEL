@@ -1,0 +1,35 @@
+)ATTR DEFAULT(%+_)
+  + TYPE(TEXT) INTENS(LOW) COLOR(GREEN)
+  _ TYPE(INPUT) INTENS(HIGH) CAPS(ON) JUST(LEFT) COLOR(TURQ)
+  % TYPE(TEXT) INTENS(HIGH) COLOR(WHITE)
+  @ TYPE(TEXT) INTENS(HIGH) COLOR(YELLOW)
+  # TYPE(TEXT) INTENS(HIGH) COLOR(RED)
+  ! TYPE(OUTPUT) INTENS(HIGH) COLOR(BLUE)
+)BODY EXPAND(||)
+%---------------------------  OPERATION PROGRESS  ----------------------------
+%COMMAND ===>_ZCMD                                                                +
++
+@DB2 Operation in Progress...
++
++  Table: !SCHEMA!.!TABLENAME                           +DB2 System: !DB2SSID   +
++
++
+@Current Status:
++  !PROGRESS_MSG                                                                +
++
+@Progress:
++  !PROGRESS_BAR!     !PROGRESS_PCT!
++
++
++Please wait while the operation completes...
++
++
+#&MSG                                                                            +
++
++Note: Large operations may take some time to complete.
++      The system will automatically proceed to results when finished.
++
+)INIT
+  &MSG = &Z
+)PROC
+)END

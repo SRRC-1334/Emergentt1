@@ -1,0 +1,43 @@
+)ATTR DEFAULT(%+_)
+  + TYPE(TEXT) INTENS(LOW) COLOR(GREEN)
+  _ TYPE(INPUT) INTENS(HIGH) CAPS(ON) JUST(LEFT) COLOR(TURQ)
+  % TYPE(TEXT) INTENS(HIGH) COLOR(WHITE)
+  @ TYPE(TEXT) INTENS(HIGH) COLOR(YELLOW)
+  # TYPE(TEXT) INTENS(HIGH) COLOR(RED)
+  ! TYPE(OUTPUT) INTENS(HIGH) COLOR(BLUE)
+)BODY EXPAND(||)
+%-------------------------  FINAL CONFIRMATION  ------------------------------
+%COMMAND ===>_ZCMD                                                                +
++
+@Operation Summary:
++  Table: !SCHEMA!.!TABLENAME                           +DB2 System: !DB2SSID   +
++  Operation: !CRUD_OP_DESC                                                     +
++  Estimated rows affected: !AFFECTED_ROWS                                      +
++
+@SQL Statement:
+!SQL_STMT                                                                       +
+!                                                                               +
++
+@This operation will affect !AFFECTED_ROWS! row(s) in the database.
++
++Commit this operation? . . %COMMIT_YN+   (Y/N)
++
++
+#&MSG                                                                            +
++
++WARNING: This operation will make permanent changes to the database.
++         Make sure you have reviewed the SQL statement carefully.
++
++Instructions:
++ - Enter Y to commit the operation to the database
++ - Enter N to rollback and cancel the operation
++ - This is your final chance to cancel before database changes
++
+%Press ENTER to proceed or PF3 to cancel
+)INIT
+  .CURSOR = COMMIT_YN
+  &MSG = &Z
+  &COMMIT_YN = 'N'
+)PROC
+  VER (&COMMIT_YN,NB,LIST,Y,N)
+)END

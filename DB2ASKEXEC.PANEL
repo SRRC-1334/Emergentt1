@@ -1,0 +1,37 @@
+)ATTR DEFAULT(%+_)
+  + TYPE(TEXT) INTENS(LOW) COLOR(GREEN)
+  _ TYPE(INPUT) INTENS(HIGH) CAPS(ON) JUST(LEFT) COLOR(TURQ)
+  % TYPE(TEXT) INTENS(HIGH) COLOR(WHITE)
+  @ TYPE(TEXT) INTENS(HIGH) COLOR(YELLOW)
+  # TYPE(TEXT) INTENS(HIGH) COLOR(RED)
+  ! TYPE(OUTPUT) INTENS(HIGH) COLOR(BLUE)
+)BODY EXPAND(||)
+%---------------------------  EXECUTE CONFIRMATION  ---------------------------
+%COMMAND ===>_ZCMD                                                                +
++
+@Final SQL Statement:
++
+!SQL_STMT                                                                       +
+!                                                                               +
+!                                                                               +
+!                                                                               +
++
+@Execute this SQL statement? . . %EXECUTE_YN+   (Y/N)
++
++
+#&MSG                                                                            +
++
++Instructions:
++ - Review the final SQL statement above
++ - Enter Y to proceed with execution
++ - Enter N to return to main menu without executing
++ - The next step will show how many rows will be affected
++
+%Press ENTER to continue or PF3 to cancel
+)INIT
+  .CURSOR = EXECUTE_YN
+  &MSG = &Z
+  &EXECUTE_YN = 'N'
+)PROC
+  VER (&EXECUTE_YN,NB,LIST,Y,N)
+)END

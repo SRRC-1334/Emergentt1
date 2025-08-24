@@ -1,0 +1,27 @@
+)ATTR DEFAULT(%+_)
+  + TYPE(TEXT) INTENS(LOW) COLOR(GREEN)
+  _ TYPE(INPUT) INTENS(HIGH) CAPS(ON) JUST(LEFT) COLOR(TURQ)
+  % TYPE(TEXT) INTENS(HIGH) COLOR(WHITE)
+  @ TYPE(TEXT) INTENS(HIGH) COLOR(YELLOW)
+  # TYPE(TEXT) INTENS(HIGH) COLOR(RED)
+  ! TYPE(OUTPUT) INTENS(HIGH) COLOR(BLUE)
+)BODY EXPAND(||) SCROLL(ON)
+%---------------------------  QUERY HISTORY  ---------------------------------
+%COMMAND ===>_ZCMD                                                                +
++
+@Saved Queries for DB2 System: !DB2SSID                                        +
++
+@Select query to rerun (Line Cmd = S):
++
+%Line Member Name    Operation  Date      Time    Table.Schema
+%Cmd  ------------   ---------  --------  -----   ---------------------------- 
+)MODEL
+_SEL +MEMBER        +CRUD_OP   +DATE     +TIME   +SCHEMA_TABLE               +
+)INIT
+  &MSG = &Z
+  .CURSOR = SEL
+)PROC
+  IF (&SEL ¬= ' ' & &SEL ¬= 'S')
+     .MSG = CRUDM002
+     .CURSOR = SEL
+)END

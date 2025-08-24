@@ -1,0 +1,50 @@
+)ATTR DEFAULT(%+_)
+  + TYPE(TEXT) INTENS(LOW) COLOR(GREEN)
+  _ TYPE(INPUT) INTENS(HIGH) CAPS(ON) JUST(LEFT) COLOR(TURQ)
+  % TYPE(TEXT) INTENS(HIGH) COLOR(WHITE)  
+  @ TYPE(TEXT) INTENS(HIGH) COLOR(YELLOW)
+  # TYPE(TEXT) INTENS(HIGH) COLOR(RED)
+  ! TYPE(OUTPUT) INTENS(HIGH) COLOR(BLUE)
+)BODY EXPAND(||) SCROLL(ON)
+%---------------------------  OPERATION RESULTS  -----------------------------
+%COMMAND ===>_ZCMD                                                                +
++
+@Operation Results:
++  Table: !SCHEMA!.!TABLENAME                           +DB2 System: !DB2SSID   +
++  Operation: !CRUD_OP_DESC                                                     +
++  SQLCODE: !SQLCODE        +Rows Affected: !ROWS_AFFECTED                     +
++
+@Result Message:
++  !RESULT_MSG                                                                  +
++
+@Data Results (for SELECT operations):
+%-----------------------------------------------------------------------------
+!RESULT_LINE1                                                                   +
+!RESULT_LINE2                                                                   +
+!RESULT_LINE3                                                                   +
+!RESULT_LINE4                                                                   +
+!RESULT_LINE5                                                                   +
+!RESULT_LINE6                                                                   +
+!RESULT_LINE7                                                                   +
+!RESULT_LINE8                                                                   +
+!RESULT_LINE9                                                                   +
+!RESULT_LINE10                                                                  +
+%-----------------------------------------------------------------------------
++
+@Options for SELECT results:
++  E - Export results to CSV    M - Email export    S - Show more rows
++
+#&MSG                                                                            +
++
++Instructions:
++ - Use PF7/PF8 to scroll through large result sets
++ - Enter E to export SELECT results to CSV format
++ - Enter M to email the exported results  
++ - Enter S to display more rows (if available)
++ - Press ENTER for new operation or PF3 to return to main menu
++
+%Press ENTER to continue or PF3 to return to main menu
+)INIT
+  &MSG = &Z
+)PROC
+)END
