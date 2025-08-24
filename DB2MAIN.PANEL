@@ -4,34 +4,50 @@
   % TYPE(TEXT) INTENS(HIGH) COLOR(WHITE)
   @ TYPE(TEXT) INTENS(HIGH) COLOR(YELLOW)
   # TYPE(TEXT) INTENS(HIGH) COLOR(RED)
+  ! TYPE(OUTPUT) INTENS(HIGH) COLOR(BLUE)
 )BODY EXPAND(||)
 %---------------------------  DB2 CRUD OPERATIONS TOOL  ---------------------------
 %COMMAND ===>_ZCMD                                                                +
 +
-@Enter DB2 connection details and table information:
+@Main Menu - Enter details and select option:
 +
-+  DB2 SSID  . . ._%DB2SSID  +   (4-character DB2 subsystem ID)
-+  Schema  . . . .%SCHEMA                              +   (Table owner/schema)
-+  Table Name  . .%TABLENAME                           +   (DB2 table name)
++  Schema  . . . . .%SCHEMA                              +   (Table owner/schema)
++  SSID  . . . . . .%DB2SSID  +                             (4-char DB2 subsystem)
++  Table Name  . . .%TABLENAME                           +   (DB2 table name)
++  CRUD Operation .%CRUD_OP+   (C=Create, R=Read, U=Update, D=Delete)
++
++
+@Options:
++  1 - Query History              (View and rerun saved queries)
++  2 - Settings                   (Configure max rows, logging, export)
++  3 - Exit                       (End DB2CRUD session)
 +
 +
 #&MSG                                                                            +
 +
 +Instructions:
-+ - Enter the DB2 subsystem ID (SSID) you want to connect to
-+ - Specify the schema (owner) of the table
-+ - Enter the exact table name for CRUD operations
-+ - Press ENTER to continue or PF3/END to exit
++ - For NEW QUERY: Fill all fields above and press ENTER
++ - For OPTIONS: Enter option number (1,2,3) and press ENTER
++ - Query History needs only SSID, other fields ignored
++ - Settings and Exit don't need any field values
++ - Press PF1 for help, PF3 to exit
 +
-+Note: This tool will dynamically create ISPF tables based on the DB2 table
-+      structure and provide a user-friendly interface for CRUD operations.
-+
-%Press ENTER to continue or PF3 to exit
+%Press ENTER to continue or select option number (1,2,3)
 )INIT
-  .CURSOR = DB2SSID
+  .CURSOR = SCHEMA
   &MSG = &Z
+  &OPTION = &Z
 )PROC
-  VER (&DB2SSID,NB,PICT,AAAA)
-  VER (&SCHEMA,NB)
-  VER (&TABLENAME,NB)
+  /* Validate based on what user selected */
+  IF (&OPTION = '1')
+     VER (&DB2SSID,NB,PICT,AAAA)
+  ELSE IF (&OPTION = '2' | &OPTION = '3')
+     /* No validation needed for Settings or Exit */
+     NOP
+  ELSE
+     /* New Query - validate all fields */
+     VER (&SCHEMA,NB,NAME)
+     VER (&DB2SSID,NB,PICT,AAAA)
+     VER (&TABLENAME,NB,NAME)
+     VER (&CRUD_OP,NB,LIST,C,R,U,D)
 )END

@@ -1,0 +1,26 @@
+)ATTR DEFAULT(%+_)
+  + TYPE(TEXT) INTENS(LOW) COLOR(GREEN)
+  _ TYPE(INPUT) INTENS(HIGH) CAPS(OFF) JUST(LEFT) COLOR(TURQ)
+  % TYPE(TEXT) INTENS(HIGH) COLOR(WHITE)
+  @ TYPE(TEXT) INTENS(HIGH) COLOR(YELLOW)
+  # TYPE(TEXT) INTENS(HIGH) COLOR(RED)
+  ! TYPE(OUTPUT) INTENS(HIGH) COLOR(BLUE)
+  £ TYPE(TEXT) INTENS(HIGH) COLOR(YELLOW) HILITE(BLINK)
+)BODY EXPAND(||)
+%------------------------  CREATE (INSERT) DATA ENTRY  -------------------------
+%COMMAND ===>_ZCMD                                                                +
++
+@Table: !SCHEMA!.!TABLENAME                            +DB2 System: !DB2SSID    +
++
+@Enter values for new record:
++
+%Column Name                  Type       Length  Null   Enter Value
+%------------------------     --------   ------  ----   ------------------------
+)MODEL
+_SEL +COL_NAME                +COL_TYPE   +LEN    +NULLS  _COL_VALUE              +
+)INIT
+  &MSG = &Z
+  .CURSOR = COL_VALUE
+)PROC
+  /* Dynamic validation will be added based on column types */
+)END

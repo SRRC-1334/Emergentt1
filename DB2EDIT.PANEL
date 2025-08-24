@@ -1,0 +1,40 @@
+)ATTR DEFAULT(%+_)
+  + TYPE(TEXT) INTENS(LOW) COLOR(GREEN)
+  _ TYPE(INPUT) INTENS(HIGH) CAPS(OFF) JUST(LEFT) COLOR(TURQ)
+  % TYPE(TEXT) INTENS(HIGH) COLOR(WHITE)
+  @ TYPE(TEXT) INTENS(HIGH) COLOR(YELLOW)
+  # TYPE(TEXT) INTENS(HIGH) COLOR(RED)
+)BODY EXPAND(||) SCROLL(ON)
+%-----------------------------  SQL EDITOR  ----------------------------------
+%COMMAND ===>_ZCMD                                                                +
++
+@Edit your SQL statement below:
++
++SQL Statement:
+_SQL_STMT                                                                       +
+_                                                                               +
+_                                                                               +
+_                                                                               +
+_                                                                               +
+_                                                                               +
+_                                                                               +
+_                                                                               +
+_                                                                               +
+_                                                                               +
++
+#&MSG                                                                            +
++
++Instructions:
++ - Modify the SQL statement as needed
++ - You can add complex WHERE clauses, JOINs, subqueries, etc.
++ - Press ENTER when finished editing
++ - Use PF7/PF8 to scroll if needed
++ - Press PF3 to cancel and return to previous screen
++
+%Press ENTER when finished editing or PF3 to cancel
+)INIT
+  .CURSOR = SQL_STMT
+  &MSG = &Z
+)PROC
+  VER (&SQL_STMT,NB)
+)END

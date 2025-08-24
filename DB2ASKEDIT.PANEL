@@ -1,0 +1,39 @@
+)ATTR DEFAULT(%+_)
+  + TYPE(TEXT) INTENS(LOW) COLOR(GREEN)
+  _ TYPE(INPUT) INTENS(HIGH) CAPS(ON) JUST(LEFT) COLOR(TURQ)
+  % TYPE(TEXT) INTENS(HIGH) COLOR(WHITE)
+  @ TYPE(TEXT) INTENS(HIGH) COLOR(YELLOW)
+  # TYPE(TEXT) INTENS(HIGH) COLOR(RED)
+  ! TYPE(OUTPUT) INTENS(HIGH) COLOR(BLUE)
+)BODY EXPAND(||)
+%---------------------------  SQL EDIT OPTION  -------------------------------
+%COMMAND ===>_ZCMD                                                                +
++
+@Generated SQL Statement:
++
+!SQL_STMT                                                                       +
+!                                                                               +
+!                                                                               +
+!                                                                               +
++
+@The system has generated the above SQL statement based on your inputs.
++
++Edit SQL before execution? . . %EDIT_SQL+   (Y/N)
++
++
+#&MSG                                                                            +
++
++Instructions:
++ - Review the generated SQL statement
++ - Enter Y if you want to modify the SQL in an editor
++ - Enter N to proceed with the generated SQL as-is
++ - You can add complex WHERE conditions, JOINs, or other SQL features
++
+%Press ENTER to continue or PF3 to cancel
+)INIT
+  .CURSOR = EDIT_SQL
+  &MSG = &Z
+  &EDIT_SQL = 'N'
+)PROC
+  VER (&EDIT_SQL,NB,LIST,Y,N)
+)END
